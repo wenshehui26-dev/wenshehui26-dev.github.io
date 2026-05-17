@@ -683,6 +683,7 @@ html,body{
     <!-- 箴言 -->
     <div class="quote-card">
       <div class="quote-text" id="adviceText">"命由己造，相由心生"</div>
+      <div id="actionsBlock" style="margin-top:10px;padding:10px;background:rgba(201,151,58,0.08);border-radius:8px;font-size:0.82rem;color:var(--gold-light);line-height:2;display:none"></div>
       <div class="quote-attr">— 大师箴言</div>
     </div>
 
@@ -994,6 +995,7 @@ function renderResult(name, pd, r) {
 
   // 箴言
   document.getElementById('adviceText').textContent = `"${r.advice || '命由己造，相由心生'}"`;
+  if(r.actions){const ab=document.getElementById('actionsBlock');ab.style.display='block';ab.innerHTML='<b style="color:var(--gold)">近期行动建议</b><br>'+r.actions.replace(/①/g,'<br>①').replace(/②/g,'<br>②').replace(/③/g,'<br>③');}
 
   document.getElementById('resultBlock').style.display = 'block';
   document.getElementById('resultBlock').scrollIntoView({ behavior:'smooth', block:'start' });
